@@ -5,14 +5,14 @@ const PathFinder = require('./pathFinder.js');
 
 let graph = new Graph();
 graph.constructGraph('./data/data.json').then((succ, err) => {
-  let graph = succ;
-  let finder = new PathFinder(graph);
-
+  let finder = new PathFinder(succ);
   finder.findShortestPath('A');
+  finder.printPathTo();
 });
 
 let graph2 = new Graph();
 graph2.constructGraph('./data/data2.json').then((succ, err) => {
   let finder = new PathFinder(succ);
   finder.findShortestPath('A');
+  finder.printPathTo();
 });

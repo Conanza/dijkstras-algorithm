@@ -9,9 +9,14 @@ class PathFinder {
     this.setupUnvisited();
   }
 
+  get hasNoneReachable () {
+    return this.unvisitedLabels.every(label => {
+      return this.unvisited[label].cost === undefined;
+    });
+  }
+
   get hasUnvisitedAndReachable () {
-    return this.unvisitedLabels.length > 0 &&
-      !this.unvisitedLabels.every(label => this.unvisited[label].cost === undefined);
+    return this.unvisitedLabels.length > 0 && !this.hasNoneReachable;
   }
 
   get nextLowestUnvisited () {
@@ -70,6 +75,7 @@ class PathFinder {
 
   printPathTo () {
     // TODO
+    console.log(this.visited);
   }
 
   setupUnvisited () {
