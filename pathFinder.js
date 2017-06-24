@@ -70,6 +70,10 @@ class PathFinder {
     console.log(`visited:`, this.visited);
   }
 
+  printPathTo () {
+    // TODO
+  }
+
   setupUnvisited () {
     for (let label in this.graph.vertices) {
       this.unvisited[label] = {
