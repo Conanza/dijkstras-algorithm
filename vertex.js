@@ -18,6 +18,10 @@ class Vertex {
     };
   }
 
+  equal (otherVertex) {
+    return this.label === otherVertex.label;
+  }
+
   hasNeighbor (vertex) {
     return this.neighbors[vertex.label] !== undefined;
   }

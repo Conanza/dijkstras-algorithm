@@ -14,5 +14,7 @@ let graph2 = new Graph();
 graph2.constructGraph('./data/data2.json').then((succ, err) => {
   let finder = new PathFinder(succ);
   finder.findShortestPath('A');
-  finder.printPathTo();
+  finder.printPathTo('E');
+  finder.printPathTo('H');
+  finder.printPathTo('A');
 });

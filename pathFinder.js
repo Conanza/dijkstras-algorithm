@@ -40,6 +40,8 @@ class PathFinder {
   }
 
   findShortestPath (startLabel, endLabel) {
+    if (Object.keys(this.visited).length > 0) this.resetSearch();
+
     let startNode = this.graph.vertices[startLabel];
     this.unvisited[startNode.label].cost = 0;
     this.unvisited[startNode.label].prevNode = startNode;
@@ -73,9 +75,31 @@ class PathFinder {
     }
   }
 
-  printPathTo () {
-    // TODO
-    console.log(this.visited);
+  printPathTo (endNode) {
+    if (!endNode) {
+      Object.keys(this.visited).forEach(key => this.printPathTo(key));
+    } else if (!this.visited[endNode]) {
+      console.log(`${endNode} was unreachable`);
+    } else {
+      let path = [endNode];
+      let currentNode = this.graph.vertices[endNode];
+      let prevNode = this.visited[endNode].prevNode;
+
+      while (!currentNode.equal(prevNode)) {
+        path.unshift(prevNode.label);
+        currentNode = prevNode;
+        prevNode = this.visited[currentNode.label].prevNode;
+      }
+
+      console.log(`Shortest path to ${endNode}: ${path.join(' > ')}`);
+      console.log(`Total Cost: ${this.visited[endNode].cost}`);
+    }
+  }
+
+  resetSearch () {
+    this.unvisited = {};
+    this.visited = {};
+    this.setupUnvisited();
   }
 
   setupUnvisited () {
