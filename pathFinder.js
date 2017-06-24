@@ -66,8 +66,6 @@ class PathFinder {
 
       currentNode = this.nextLowestUnvisited;
     }
-
-    console.log(`visited:`, this.visited);
   }
 
   printPathTo () {
