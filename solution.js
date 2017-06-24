@@ -10,3 +10,9 @@ graph.constructGraph('./data.json').then((succ, err) => {
 
   finder.findShortestPath('A');
 });
+
+let graph2 = new Graph();
+graph.constructGraph('./data2.json').then((succ, err) => {
+  let finder = new PathFinder(succ);
+  finder.findShortestPath('A');
+});
