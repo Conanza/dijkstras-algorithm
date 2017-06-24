@@ -4,7 +4,7 @@ const Graph = require('./graph.js');
 const PathFinder = require('./pathFinder.js');
 
 let graph = new Graph();
-graph.constructGraph('./data.json').then((succ, err) => {
+graph.constructGraph('./data/data.json').then((succ, err) => {
   let graph = succ;
   let finder = new PathFinder(graph);
 
@@ -12,7 +12,7 @@ graph.constructGraph('./data.json').then((succ, err) => {
 });
 
 let graph2 = new Graph();
-graph.constructGraph('./data2.json').then((succ, err) => {
+graph2.constructGraph('./data/data2.json').then((succ, err) => {
   let finder = new PathFinder(succ);
   finder.findShortestPath('A');
 });

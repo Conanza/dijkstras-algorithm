@@ -7,7 +7,10 @@ class Vertex {
   }
 
   addNeighbor (vertex, edge) {
-    if (this.hasNeighbor(vertex)) { console.warn('neighbor exists'); return; }
+    if (this.hasNeighbor(vertex)) {
+      console.warn(`neighbor ${vertex.label} exists`);
+      return;
+    }
 
     this.neighbors[vertex.label] = {
       edge: edge,
