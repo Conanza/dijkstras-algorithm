@@ -4,7 +4,6 @@ class Vertex {
   constructor (opts) {
     this.label = opts.label;
     this.neighbors = {};
-    this.previous = undefined;
   }
 
   addNeighbor (vertex, edge) {
